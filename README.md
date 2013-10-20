@@ -3,8 +3,8 @@
 
 2. Ensure that the Developer mode checkbox in the top right-hand corner is checked.
 
-3. lick Load unpacked extension… to pop up a file-selection dialog.
+3. Click Load unpacked extension… to pop up a file-selection dialog.
 
 4. Navigate to  hackerearth-chrome-extension/ and select it.
 
-The extension will be loaded right away.
+The extension will be loaded right away!
