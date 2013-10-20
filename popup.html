@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Notification Widget - Hackerearth</title>
+        <style>
+            body {
+                min-width: 332px;
+                overflow-x: hidden;
+                padding: 8px 4px 8px 4px;
+                background-color: #ebebeb;
+            } 
+            .imgLoading {
+                height: 20px;
+	    } 
+        </style>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="base.css">
+    </head>
+    <body>
+	<div id="response">
+           <div class="jewelHeader">
+             <a href="http://www.hackerearth.com" target="_blank">
+               <img src="icon.png" height="20px" width="20px"/ style="float:left">
+             </a>
+             &nbsp;Event Notifications
+           <br/>
+           </div>
+           <div class="notifications">
+             <div id="ongoing">
+             </div>
+	     <div id="upcoming">
+             </div>
+           </div>
+        </div>
+        <div id="indicator">
+          <img src='images/ajax-loading-image.gif' width="332px">
+	</div>
+    </body>
+</html>
