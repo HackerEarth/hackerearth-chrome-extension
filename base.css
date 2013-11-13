@@ -715,13 +715,16 @@ html.ie6 .btn-blue {
   margin-top: -2px;
 }
 .notifications {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .notification-item {
   padding-bottom: 8px;
   padding-top: 8px;
   border: 1.5px solid white;
-  margin-top: 5px;
-  padding: 4px 10px;
+  margin-top: 0px;
+  padding: 5px 0px 5px 0px;
+  border-bottom: #e8e8e8 1px solid;
 }
 
 .notification-item:hover {
