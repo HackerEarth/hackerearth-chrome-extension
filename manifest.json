@@ -5,11 +5,17 @@
   "description": "HackerEarth Extension keeps you updated with upcoming challenges and other resources on HackerEarth.",
   "version": "1.4",
 
+  "icons":  {
+      "16"  : "icon.png",
+      "48"  : "icon.png",
+      "128" : "icon.png" 
+      },
+
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://www.hackerearth.com/"
+    "http://www.hackerearth.com/", "https://www.hackerearth.com/"
   ]
 }

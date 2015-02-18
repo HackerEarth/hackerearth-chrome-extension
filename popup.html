@@ -10,13 +10,25 @@
         Notifications
         <br/>
       </div>
-      <div class="sub-heading less-margin" style="padding-left: 10px;">Upcoming Challenges</div>
-      <div class="notifications">
-        <div id="ongoing">
-        </div>
-        <div id="upcoming">
-        </div>
+      
+      <div class="nice-select" style="padding-right:5px;">
+        <select id="challengeType">
+            <option>CHALLENGE TYPES</option>
+        </select>
       </div>
+
+      <div class="sub-heading less-margin" style="padding-left: 10px;" id="upcomingTopParent">Upcoming Challenges</div>  
+        <div class="notifications">
+          <div id="upcoming"></div>
+        </div>  
+      </div>    
+      
+      <div class="sub-heading less-margin" style="padding-left: 10px;" id="ongoingTopParent">Ongoing Challenges</div>
+        <div class="notifications">
+          <div id="ongoing">
+          </div>
+      </div>
+
     </div>
     <div id="indicator">
       <img src='images/ajax-loading-image.gif' width="332px">
