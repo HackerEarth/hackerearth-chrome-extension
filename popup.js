@@ -1,9 +1,11 @@
 (function () {
 
   var init = function() {
+    
       var xhr = new XMLHttpRequest();
       xhr.open("GET", "http://www.hackerearth.com/chrome-extension/events/", true);
       xhr.send();
+      
       xhr.onreadystatechange = function () {
           var json = JSON.parse(xhr.responseText);
           
@@ -16,8 +18,18 @@
           var selector = document.getElementById("challengeType");
           selector.addEventListener("change", selectionChanged, false)
           selector.myParams = json;
+
+          hideIfEmpty("ongoingTopParent", "ongoing");
+          hideIfEmpty("upcomingTopParent", "upcoming");
       };
   };
+
+  var hideIfEmpty = function(parentTag, divTag) {
+    var div = document.getElementById(divTag);
+    if (!div.hasChildNodes()) {
+      document.getElementById(parentTag).style.display = 'none';
+    }
+  }
 
   var selectionChanged = function(data) {
     var requiredChallenge = document.getElementById("challengeType").value;
@@ -26,6 +38,9 @@
     
     populateDiv("ongoing", "ONGOING", data.target.myParams, requiredChallenge);
     populateDiv("upcoming", "UPCOMING", data.target.myParams, requiredChallenge);
+
+    hideIfEmpty("ongoingTopParent", "ongoing");
+    hideIfEmpty("upcomingTopParent", "upcoming");
   }
 
   var populateChallengeStatusOptions = function(json) {
@@ -77,6 +92,8 @@
   };
 
   var reset = function() {
+   document.getElementById("ongoingTopParent").style.display = 'visible';
+   document.getElementById("upcomingTopParent").style.display = 'visible';
    clearDiv("ongoing");
    clearDiv("upcoming");
   };

@@ -19,3 +19,5 @@ filter.
 4.) The types of challenges given as option say - hiring, collese etc are not hardcoded. The retrieved result from JSON is used to find what all option 
 should be displayed as options in html selector
 5.) Permssion was given only to http://www.hackerearth.com/ in the manifest file. changed that to give permission to https too.
+6.) New changes (Feb 18, 2015): Now that I have separated the upcoming and ongoing challenges. If either of them is empty then, their parent/header gets hidden.
+Such that if user challenges the challenge type from All to hiring and then back to ALL.In this case whenever the data is present corresponding header will beocme visible and whenever the data is not present the header will beocome invisible. this is done by adding visibility in reset function and then deciding whether to hide or show the header
