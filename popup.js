@@ -33,7 +33,6 @@
 
   var selectionChanged = function(data) {
     var requiredChallenge = document.getElementById("challengeType").value;
-    console.log("Length:" + data.target.myParams);
     reset();
     
     populateDiv("ongoing", "ONGOING", data.target.myParams, requiredChallenge);
@@ -51,14 +50,11 @@
       e=json[i];
 
       if (tempList.search(e.challenge_type) >= 0) {
-        console.log("Found match for " + e.challenge_type);
       } else { //if uniqure
-        console.log("appending to list " + e.challenge_type);
         challengesType.push(e.challenge_type.toUpperCase());
         tempList = tempList + e.challenge_type + ";"
       }
     }
-    console.log(challengesType);
     
     clearDiv("challengeType");
 
@@ -116,10 +112,6 @@
              "Date: " + e.date +
              "<br/>" +
              " Time: " + e.time + 
-             "<br/>" + 
-             "Click " +
-             "<a href='" + e.subscribe + "' target='_blank' class='underline-hover' >here</a>"+
-             " to subscribe" +
           "</div>";
 
     element.innerHTML = str;
