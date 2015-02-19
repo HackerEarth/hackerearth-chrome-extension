@@ -1,7 +1,9 @@
 (function () {
 
   var init = function() {
-    
+      document.getElementById("ongoingTopParent").style.display = 'none';
+      document.getElementById("upcomingTopParent").style.display = 'none';
+      document.getElementById("challengeTypeParent").style.display = 'none';
       var xhr = new XMLHttpRequest();
       xhr.open("GET", "http://www.hackerearth.com/chrome-extension/events/", true);
       xhr.send();
@@ -19,8 +21,20 @@
           selector.addEventListener("change", selectionChanged, false)
           selector.myParams = json;
 
-          hideIfEmpty("ongoingTopParent", "ongoing");
-          hideIfEmpty("upcomingTopParent", "upcoming");
+          var ongoing_isempty = hideIfEmpty("ongoingTopParent", "ongoing");
+          var upcoming_isempty = hideIfEmpty("upcomingTopParent", "upcoming");
+
+          if(!ongoing_isempty){  
+            console.log("Ongoing not empty");
+            document.getElementById("ongoingTopParent").style.display = 'block';
+          }
+          if(!upcoming_isempty){
+            console.log("Upcoming not empty");
+            document.getElementById("upcomingTopParent").style.display = 'block';
+          }
+          if(!ongoing_isempty || !upcoming_isempty){
+            document.getElementById("challengeTypeParent").style.display = 'block';
+          }
       };
   };
 
@@ -28,8 +42,14 @@
     var div = document.getElementById(divTag);
     if (!div.hasChildNodes()) {
       document.getElementById(parentTag).style.display = 'none';
+      return 1;
     }
-  }
+    else{
+        document.getElementById(parentTag).style.display = 'block';
+        console.log(parentTag);
+        return 0;
+    }
+  };
 
   var selectionChanged = function(data) {
     var requiredChallenge = document.getElementById("challengeType").value;
@@ -40,7 +60,7 @@
 
     hideIfEmpty("ongoingTopParent", "ongoing");
     hideIfEmpty("upcomingTopParent", "upcoming");
-  }
+  };
 
   var populateChallengeStatusOptions = function(json) {
 
@@ -88,14 +108,15 @@
   };
 
   var reset = function() {
-   document.getElementById("ongoingTopParent").style.display = 'visible';
-   document.getElementById("upcomingTopParent").style.display = 'visible';
+   document.getElementById("ongoingTopParent").style.display = 'block';
+   document.getElementById("upcomingTopParent").style.display = 'block';
    clearDiv("ongoing");
    clearDiv("upcoming");
   };
 
   var clearDiv = function (div) {
     node = document.getElementById(div);
+    //In every iteration, removes the last node.
     while(node.hasChildNodes()) {
       node.removeChild(node.lastChild);
     }
