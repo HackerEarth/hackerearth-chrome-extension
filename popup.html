@@ -4,33 +4,35 @@
     <link rel="stylesheet" href="base.css"/>
   </head>
   <body>
-    <div id="response">
-      <div class="jewelHeader">
+    <div id='response'>
+
+      <div class='jewel-header'>
         <a href="http://www.hackerearth.com" target="_blank"><img src="icon.png" height="20px" width="20px" /></a>
-        Notifications
+            Notifications
         <br/>
       </div>
       
-      <div class="nice-select" style="padding-right:5px;" id="challengeTypeParent">
-        <select id="challengeType">
+      <div class='nice-select' style="padding-right:5px;" id='challenge-type-parent'>
+        <select id='challenge-type'>
             <option>CHALLENGE TYPES</option>
         </select>
       </div>
 
-      <div class="sub-heading less-margin" style="padding-left: 10px;" id="upcomingTopParent">Upcoming Challenges</div>
-        <div class="notifications">
-          <div id="upcoming"></div>
-        </div>  
-      
-      <div class="sub-heading less-margin" style="padding-left: 10px;" id="ongoingTopParent">Ongoing Challenges</div>
-        <div class="notifications">
-          <div id="ongoing"></div>
-        </div>
+      <div class="sub-heading less-margin" style="padding-left: 10px;" id='ongoing-top-parent'>Ongoing Challenges</div>
+      <div class='notifications'>
+        <div id='ongoing'></div>
+      </div> 
 
-    </div>
-    <div id="indicator">
+      <div class='sub-heading less-margin' style="padding-left: 10px;" id='upcoming-top-parent'>Upcoming Challenges</div>
+      <div class='notifications'>
+        <div id='upcoming'></div>
+      </div>  
+      
+    </div> <!-- End of Response -->
+
+    <div id='indicator'>
       <img src='images/ajax-loading-image.gif' width="332px"/>
-	  </div>
+	</div>
     <script type="text/javascript" src="popup.js"></script>
   </body>
 </html>
