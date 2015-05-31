@@ -3,12 +3,12 @@
 
   "name": "HackerEarth Extension",
   "description": "HackerEarth Extension keeps you updated with upcoming challenges and other resources on HackerEarth.",
-  "version": "1.5",
+  "version": "2.1",
 
   "icons":  {
       "16"  : "icon.png",
       "48"  : "icon.png",
-      "128" : "icon.png" 
+      "128" : "icon.png"
       },
 
   "browser_action": {
