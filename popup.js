@@ -1,7 +1,7 @@
 (function () {
 
   // define constants here
-  var DATA_URL= 'https://www.hackerearth.com/chrome-extension/events/'; 
+  var DATA_URL= 'https://www.hackerearth.com/chrome-extension/events/';
   var ONGOING= 'ONGOING';
   var UPCOMING= 'UPCOMING';
   var ONGOING_PARENT_ID= 'ongoing-top-parent';
@@ -10,13 +10,13 @@
   var UPCOMING_ID= 'upcoming';
   var CHALLENGE_TYPE_ID = 'challenge-type'
   var CHALLENGE_TYPE_PARENT_ID = 'challenge-type-parent';
-  
+
   var DEBUG = false;
 
   function debug(data){
     if(DEBUG){
         console.log(data);
-    }    
+    }
   }
 
   var init = function() {
@@ -26,7 +26,7 @@
       var xhr = new XMLHttpRequest();
       xhr.open('GET', DATA_URL, true);
       xhr.send();
-      
+
       xhr.onreadystatechange = function () {
           var json_response = JSON.parse(xhr.responseText);
           var json = json_response.response;
@@ -44,7 +44,7 @@
           var ongoing_isempty = hideIfEmpty(ONGOING_PARENT_ID, ONGOING_ID);
           var upcoming_isempty = hideIfEmpty(UPCOMING_PARENT_ID, UPCOMING_ID);
           debug('empty ones are hid');
-          if(!ongoing_isempty){  
+          if(!ongoing_isempty){
             debug('Ongoing not empty');
             document.getElementById(ONGOING_PARENT_ID).style.display = 'block';
           }
@@ -73,7 +73,7 @@
   var selectionChanged = function(data) {
     var requiredChallenge = document.getElementById(CHALLENGE_TYPE_ID).value;
     reset();
-    
+
     populateDiv(ONGOING_ID, ONGOING, data.target.myParams, requiredChallenge);
     populateDiv(UPCOMING_ID, UPCOMING, data.target.myParams, requiredChallenge);
 
@@ -94,20 +94,20 @@
         tempList = tempList + e.challenge_type + ";"
       }
     }
-    
+
     clearDiv(CHALLENGE_TYPE_ID);
 
     //Add the header message before adding the types of challenges
     var option = document.createElement('option');
-    option.text = 'CHALLENGE TYPES';
-    document.getElementById(CHALLENGE_TYPE_ID).add(option, 0);  
+    option.text = 'All';
+    document.getElementById(CHALLENGE_TYPE_ID).add(option, 0);
 
     for (i = 0; i < challengesType.length; i++) {
 
       var option = document.createElement('option');
       option.text = challengesType[i];
       document.getElementById(CHALLENGE_TYPE_ID).add(option);
-    }    
+    }
   };
 
 
@@ -120,18 +120,18 @@
    */
   var populateDiv = function(div_id, challenge_status, json, requiredChallengeType) {
     for(i = 0, len = json.length; i < len; i++) {
-      e = json[i]; 
+      e = json[i];
 
-      if (requiredChallengeType === 'CHALLENGE TYPES' || typeof requiredChallengeType === 'undefined') {
+      if (requiredChallengeType === 'All' || typeof requiredChallengeType === 'undefined') {
         if( e.status == challenge_status ) { //status shows whether the content is upcoming or ongoing
           document.getElementById(div_id).appendChild(create_node(e));
-        }  
+        }
       } else {
         if( (e.status == challenge_status) && e.challenge_type.toUpperCase() === requiredChallengeType) {
             //status shows whether the content is upcoming or ongoing
           debug(e);
           document.getElementById(div_id).appendChild(create_node(e));
-        } 
+        }
       }
     }
   };
@@ -164,15 +164,15 @@
   var create_node = function (e) {
     var element = document.createElement('div'),
     // to be modified
-    str = "<div class='notification-item'>"+ 
-            "<div class='sub-heading'>" + 
+    str = "<div class='notification-item'>"+
+            "<div class='sub-heading'>" +
               "<a href='" + e.url + "' target='_blank' class='underline-hover'>" + e.title + "</a>"+
             "</div>" +
             "Challenge Type: " + e.challenge_type +
             "<br/>" +
              "Date: " + e.date +
              "<br/>" +
-             "Time: " + e.time + 
+             "Time: " + e.time +
           "</div>";
 
     element.innerHTML = str;
