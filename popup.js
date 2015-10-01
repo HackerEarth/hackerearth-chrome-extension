@@ -90,7 +90,7 @@
 
       if (tempList.search(e.challenge_type) >= 0) {
       } else { //if uniqure
-        challengesType.push(e.challenge_type.toUpperCase());
+        challengesType.push(e.challenge_type);
         tempList = tempList + e.challenge_type + ";"
       }
     }
@@ -127,7 +127,7 @@
           document.getElementById(div_id).appendChild(create_node(e));
         }
       } else {
-        if( (e.status == challenge_status) && e.challenge_type.toUpperCase() === requiredChallengeType) {
+        if( (e.status == challenge_status) && e.challenge_type === requiredChallengeType) {
             //status shows whether the content is upcoming or ongoing
           debug(e);
           document.getElementById(div_id).appendChild(create_node(e));
