@@ -10,3 +10,7 @@
 5. Navigate to  hackerearth-chrome-extension/ (the directory where you cloned the github repository) and select it.
 
 The extension will be loaded right away!
+
+### Firefox addon for HackerEarth challenges
+
+1. Download addon from https://addons.mozilla.org/addon/hackerearth-challenges
